@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap');
+        body{
+            font-family: 'Montserrat', sans-serif;
+            background-color: #292829;
+        /*  background: linear-gradient(to right, #e2e2e2, #1f1b1b); */
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: black;
+            height: 120vh;
+        }
+        .container {
+            /*
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+            width: 768px;
+            max-width: 100%;
+            min-height: 480px;
+        */
+            display: flex;
+            flex-direction: column;
+        }
+        .signup-text {
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+        .select::selection {
+            background: rgb(46, 46, 255);
+            color: rgb(215, 215, 255);
+        }
+        .active {
+            color: black;
+        }
+        .navbar {
+            background-color: #1c2121;
+            width: 101%;
+            height: 55px;
+            position: relative;
+            bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .navtext {
+            text-decoration: none;
+            color: #d5bf98;
+            position: static;
+            font-weight: bold;
+            margin-left: 15px;
+            
+        }
+        .navtext:nth-child(1){
+            margin-left: 61%;
+        }
+        .navtext:hover {
+            text-decoration: underline;
+        }
+        .hvdra {
+            font-weight: bold;
+            font-size: 100px;
+            color: #d3879a;
+            margin-top: 20px;
+        }
+        .info {
+            color: #918375;
+            font-weight: bold;
+            font-size: 30px;
+            display: flex;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+        .btn {
+            text-decoration: none;
+            color: #323131;
+            border: solid 1px #c5b391;
+            background: #3d3936;
+            color: #cebf99;
+            border-radius: 10px;
+            width: 200px;
+            height: 50px;
+            font-weight: bold;
+            font-size: large;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.1s;
+            margin-left: 20px;
+        }
+        .btn:hover {
+            background-color: #504944;
+        }
+        #sprt {
+            font-size: 15px;
+            width: 250px;
+        }
+        #download {
+            width: 210px; background: #d3879a; color: #323131; border: solid 1px #323131;
+        }
+        #download:hover {
+            background-color: #b17284;
+        }
+        #light{
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+        }
+        #heart {
+            margin: 5px 0 0 3px;
+            width: 32px;
+            height: 32px;
+        }
+        .boxes {
+            display: grid;
+            row-gap: 0;
+            column-gap: 20px;
+        }
+        .ezimg {
+            background-color: #32312e;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .eztext {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        .easy {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 1;
+        }
+        .great {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 2;
+        }
+        .excellent {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 3;
+        }
+        .privacy {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 1;
+        }
+        .maint {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 2;
+        }
+        .dev {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 3;
+        }
+        #ez {
+            font-weight: bold;
+        }
+        .box-hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+            transition: all 0.15s ease;
+        }
+        .box-hover:hover {
+            box-shadow: 2px 2px 30px rgba(255, 125, 242, 0.144);
+        }
+        #src {
+            text-decoration: none;
+            color: #a76a7b;
+        }
+        #src-text {
+            font-family: 'Source Code Pro', monospace;
+            position: static;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-grow: 1;
+        }
+        .credits {
+            background-color: #1c2121;
+            width: 101%;
+            height: 55px;
+            position: relative;
+            top: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .icon {
+            margin: 0 10px 0 0;
+            color: #ceb995;
+            transition: all 0.15s ease;
+            font-size: 23px;
+        }
+        .icon:hover {
+            color: #ffe5b6;
+        }
+        .icons {
+            margin-right: 10px;
+        }
+        #src:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>ThisCord</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="navtext select">Download</a>
+        <a href="#" class="navtext select">Plugins</a>
+        <a href="#" class="navtext select">FAQ</a>
+        <a href="#" class="navtext select">Cloud</a>
+    </div>
+    <a class="hvdra select">ThisCord</a>
+    <div class="info">
+        <a class="select">The Best Chatting Platform</a>
+        <img src="https://static.vecteezy.com/system/resources/previews/018/824/830/original/heart-emoji-file-free-png.png" id="heart">
+    </div>
+    <div class="buttons">
+        <button id="download" class="select btn">Download ThisCord</button>
+        <button id="sprt" class="select btn">Join our Support Server</button>
+        <button class="select btn">View on GitHub</button>
+    </div>
+    <div class="boxes">
+        <div class="easy box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/light-bulb.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Easy Install</a>
+                <br><br>
+                <p>Super easy to install thanks to our graphical installer</p>
+            </div>
+        </div>
+        <div class="great box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/rocket.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Great Performance</a>
+                <br><br>
+                <p>Built with performance in mind. No more sluggish Discord!</p>
+            </div>
+        </div>
+        <div class="excellent box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/globe.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Excellent Browser Support</a>
+                <br><br>
+                <p>Works just as well inside your favourite Browser!</p>
+            </div>
+        </div>
+        <div class="privacy box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/locked.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Privacy Friendly</a>
+                <br><br>
+                <p>Blocks Discord analytics & crash reports out of the box</p>
+            </div>
+        </div>
+        <div class="maint box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/package.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Maintained Actively</a>
+                <br><br>
+                <p>No more broken plugins! Bugs are usually fixed within a day</p>
+            </div>
+        </div>
+        <div class="dev box-hover">
+            <div class="ezimg">
+                <img src="https://vencord.dev/assets/hammer-and-wrench.png" id="light">
+            </div>
+            <div class="eztext">
+                <a id="ez">Developer Friendly</a>
+                <br><br>
+                <p>Flexible and robust plugin system with many APIs empowering you</p>
+            </div>
+        </div>
+    </div>
+    <div class="credits">
+        <p style="font-weight: 500;" id="src-text"><a href="https://vencord.dev/" style="text-decoration: none;"><span id="src">Vencord</span></a><span style="color: #9f8f73;"> — WEBSITE IS INSPIRED BY VENCORD'S SERVER</span></p>
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-discord icon"></i></a>
+            <a href="#"><i class="fa-brands fa-github icon"></i></a>
+            <a href="#"><i class="fa-regular fa-heart icon"></i></a>
+            <a href="#"><i class="fa-solid fa-gear icon"></i></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
