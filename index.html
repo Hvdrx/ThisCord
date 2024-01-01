@@ -11,6 +11,10 @@
             background: #d5bf98;
             color: #292829;
         }
+        *.light::selection {
+            background: #ffd7fa;
+            color: #cd4c97;
+        }
         body{
             font-family: 'Montserrat', sans-serif;
             background-color: #292829;
@@ -234,6 +238,15 @@
         .icon:hover {
             color: #ffe5b6;
         }
+        .icon.light {
+            margin: 0 10px 0 0;
+            color: #ffeecf;
+            transition: all 0.15s ease;
+            font-size: 23px;
+        }
+        .icon.light:hover {
+            color: #ceb995;   
+        }
         .icons {
             margin-right: 10px;
         }
@@ -340,7 +353,7 @@
         <p style="font-weight: 500;" id="src-text"><a href="https://vencord.dev/" style="text-decoration: none;"><span id="src">Vencord</span></a> — WEBSITE IS INSPIRED BY VENCORD'S SERVER</p>
         <div class="icons">
             <a href="#"><i class="fa-brands fa-discord icon"></i></a>
-            <a href="#"><i class="fa-brands fa-github icon"></i></a>
+            <a href="https://github.com/Hvdrx/ThisCord"><i class="fa-brands fa-github icon"></i></a>
             <a href="#"><i class="fa-regular fa-heart icon"></i></a>
             <a href="#"><i class="fa-solid fa-gear icon"></i></a>
         </div>
@@ -357,8 +370,10 @@
         const thiscord = document.getElementsByClassName("hvdra");
         const boxhover = document.getElementsByClassName('box-hover');
         const credits = document.getElementsByClassName('credits');
+        const icon = document.getElementsByClassName('icon');
         const src = document.getElementById('src');
         const srctext = document.getElementById('src-text');
+        const all = document.getElementsByTagName("*");
 
         toggle.addEventListener('click', function(){
             this.classList.toggle('fa-sun');
@@ -383,6 +398,12 @@
                 for (let i = 0; i < boxhover.length; i++) {
                     boxhover[i].classList.remove('light')
                 }
+                for (let i = 0; i < icon.length; i++) {
+                    icon[i].classList.remove('light')
+                }
+                for (let i = 0; i < all.length; i++) {
+                    all[i].classList.remove('light')
+                }
                 thiscord[0].style.color = '#d3879a';
                 thiscord[0].style.transition = '1s';
                 credits[0].style.background = '#1c2121';
@@ -394,6 +415,7 @@
                 src.style.transition = '1s';
                 srctext.style.color = '#9f8f73';
                 srctext.style.transition = '1s';
+                all[0].classList.add('light');
             } else {
                 body.style.background = '#ffe8ff';
                 body.style.color = 'white';
@@ -414,6 +436,12 @@
                 }
                 for (let i = 0; i < boxhover.length; i++) {
                     boxhover[i].classList.add('light')
+                }
+                for (let i = 0; i < icon.length; i++) {
+                    icon[i].classList.add('light')
+                }
+                for (let i = 0; i < all.length; i++) {
+                    all[i].classList.add('light')
                 }
                 thiscord[0].style.color = '#ff527d';
                 thiscord[0].style.transition = '1s';
