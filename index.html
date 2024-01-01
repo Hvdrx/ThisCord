@@ -7,6 +7,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap');
+        *::selection {
+            background: #d5bf98;
+            color: #292829;
+        }
         body{
             font-family: 'Montserrat', sans-serif;
             background-color: #292829;
@@ -36,19 +40,16 @@
             font-size: 40px;
             font-weight: bolder;
         }
-        .select::selection {
-            background: rgb(46, 46, 255);
-            color: rgb(215, 215, 255);
-        }
         .active {
             color: black;
         }
         .navbar {
             background-color: #1c2121;
-            width: 101%;
+            width: 101.29%;
             height: 55px;
             position: relative;
-            bottom: 5px;
+            bottom: 10px;
+            right: 1px;
             display: flex;
             align-items: center;
         }
@@ -61,6 +62,14 @@
             
         }
         .navtext:nth-child(1){
+            margin-left: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .navtext:nth-child(1):hover {
+            text-decoration: none;
+        }
+        .navtext:nth-child(2){
             margin-left: 61%;
         }
         .navtext:hover {
@@ -100,6 +109,25 @@
         }
         .btn:hover {
             background-color: #504944;
+        }
+        .btn.light {
+            text-decoration: none;
+            color: #323131;
+            border: solid 1px #c5b391;
+            background: #a864a8;
+            color: #ffeafa;
+            border-radius: 10px;
+            width: 200px;
+            height: 50px;
+            font-weight: bold;
+            font-size: large;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.1s;
+            margin-left: 20px;
+        }
+        .btn.light:hover {
+            background: #be81be;
         }
         #sprt {
             font-size: 15px;
@@ -142,32 +170,39 @@
             margin-left: 10px;
         }
         .easy {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 1;
+            grid-row: 1; grid-column: 1;
         }
         .great {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 2;
+            grid-row: 1; grid-column: 2;
         }
         .excellent {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 1; grid-column: 3;
+            grid-row: 1; grid-column: 3;
         }
         .privacy {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 1;
+            grid-row: 2; grid-column: 1;
         }
         .maint {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 2;
+            grid-row: 2; grid-column: 2;
         }
         .dev {
-            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px; grid-row: 2; grid-column: 3;
+            grid-row: 2; grid-column: 3;
         }
         #ez {
             font-weight: bold;
         }
         .box-hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+            box-shadow: none;
             transition: all 0.15s ease;
         }
         .box-hover:hover {
             box-shadow: 2px 2px 30px rgba(255, 125, 242, 0.144);
+        }
+        .box-hover.light {
+            box-shadow: none;
+            transition: all 0.15s ease;
+        }
+        .box-hover.light:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
         }
         #src {
             text-decoration: none;
@@ -179,10 +214,11 @@
             font-weight: bold;
             margin-left: 15px;
             flex-grow: 1;
+            color: #9f8f73;
         }
         .credits {
-            background-color: #1c2121;
-            width: 101%;
+            background: #1c2121;
+            width: 101.1%;
             height: 55px;
             position: relative;
             top: 50px;
@@ -208,11 +244,21 @@
             text-decoration: none;
             color: #cebf99;
         }
+        .box {
+            background-color: #3d3936; border-radius: 10px; color: #cebf99; height: 200px; width: 300px; margin-top: 25px;
+        }
+        #download.light {
+            background-color: #ff527d;
+        }
+        #download.light:hover {
+            background-color: #d7486c;
+        }
     </style>
     <title>ThisCord</title>
 </head>
 <body>
     <div class="navbar">
+        <i class="fa-solid fa-moon navtext" id="toggleDark"></i>
         <a href="#" class="navtext select">Download</a>
         <a href="#" class="navtext select">Plugins</a>
         <a href="#" class="navtext select">FAQ</a>
@@ -220,16 +266,16 @@
     </div>
     <a class="hvdra select">ThisCord</a>
     <div class="info">
-        <a class="select">The Best Chatting Platform</a>
+        <a class="select" id="info-text">The Best Chatting Platform</a>
         <img src="https://static.vecteezy.com/system/resources/previews/018/824/830/original/heart-emoji-file-free-png.png" id="heart">
     </div>
     <div class="buttons">
         <button id="download" class="select btn">Download ThisCord</button>
         <button id="sprt" class="select btn">Join our Support Server</button>
-        <button class="select btn"><a href="https://github.com/Hvdrx/ThisCord" id="gthb">View on GitHub</a></button>
+        <a href="https://github.com/Hvdrx/ThisCord" id="gthb"><button class="select btn">View on GitHub</button></a>
     </div>
     <div class="boxes">
-        <div class="easy box-hover">
+        <div class="easy box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/light-bulb.png" id="light">
             </div>
@@ -239,7 +285,7 @@
                 <p>Super easy to install thanks to our graphical installer</p>
             </div>
         </div>
-        <div class="great box-hover">
+        <div class="great box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/rocket.png" id="light">
             </div>
@@ -249,7 +295,7 @@
                 <p>Built with performance in mind. No more sluggish Discord!</p>
             </div>
         </div>
-        <div class="excellent box-hover">
+        <div class="excellent box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/globe.png" id="light">
             </div>
@@ -259,7 +305,7 @@
                 <p>Works just as well inside your favourite Browser!</p>
             </div>
         </div>
-        <div class="privacy box-hover">
+        <div class="privacy box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/locked.png" id="light">
             </div>
@@ -269,7 +315,7 @@
                 <p>Blocks Discord analytics & crash reports out of the box</p>
             </div>
         </div>
-        <div class="maint box-hover">
+        <div class="maint box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/package.png" id="light">
             </div>
@@ -279,7 +325,7 @@
                 <p>No more broken plugins! Bugs are usually fixed within a day</p>
             </div>
         </div>
-        <div class="dev box-hover">
+        <div class="dev box-hover box">
             <div class="ezimg">
                 <img src="https://vencord.dev/assets/hammer-and-wrench.png" id="light">
             </div>
@@ -291,7 +337,7 @@
         </div>
     </div>
     <div class="credits">
-        <p style="font-weight: 500;" id="src-text"><a href="https://vencord.dev/" style="text-decoration: none;"><span id="src">Vencord</span></a><span style="color: #9f8f73;"> — WEBSITE IS INSPIRED BY VENCORD'S SERVER</span></p>
+        <p style="font-weight: 500;" id="src-text"><a href="https://vencord.dev/" style="text-decoration: none;"><span id="src">Vencord</span></a> — WEBSITE IS INSPIRED BY VENCORD'S SERVER</p>
         <div class="icons">
             <a href="#"><i class="fa-brands fa-discord icon"></i></a>
             <a href="#"><i class="fa-brands fa-github icon"></i></a>
@@ -299,5 +345,89 @@
             <a href="#"><i class="fa-solid fa-gear icon"></i></a>
         </div>
     </div>
+    <script>
+        const toggle = document.getElementById('toggleDark');
+        const download = document.getElementById('download');
+        const infotext = document.getElementById('info-text');
+        const boxstyle = document.getElementsByClassName('box');
+        const btn = document.getElementsByClassName('btn');
+        const body = document.querySelector('body');
+        const navbar = document.getElementsByClassName('navbar');
+        const navtext = document.getElementsByClassName("navtext");
+        const thiscord = document.getElementsByClassName("hvdra");
+        const boxhover = document.getElementsByClassName('box-hover');
+        const credits = document.getElementsByClassName('credits');
+        const src = document.getElementById('src');
+        const srctext = document.getElementById('src-text');
+
+        toggle.addEventListener('click', function(){
+            this.classList.toggle('fa-sun');
+            if (this.classList.toggle('fa-moon')){
+                body.style.background = '#292829';
+                body.style.color = 'black';
+                body.style.transition = '1s';
+                navbar[0].style.background = '#1c2121';
+                navbar[0].style.transition = '1s';
+                for (let i = 0; i < navtext.length; i++) {
+                    navtext[i].style.transition = '1s';
+                    navtext[i].style.color = '#d5bf98';
+                }
+                for (let i = 0; i < boxstyle.length; i++) {
+                    boxstyle[i].style.background = '#3d3936';
+                    boxstyle[i].style.transition = '0.15s';
+                    boxstyle[i].style.color = '#cebf99';
+                }
+                for (let i = 0; i < btn.length; i++) {
+                    btn[i].classList.remove('light')
+                }
+                for (let i = 0; i < boxhover.length; i++) {
+                    boxhover[i].classList.remove('light')
+                }
+                thiscord[0].style.color = '#d3879a';
+                thiscord[0].style.transition = '1s';
+                credits[0].style.background = '#1c2121';
+                credits[0].style.transition = '1s';
+                download.classList.remove('light');
+                infotext.style.color = '#918375';
+                infotext.style.transition = '1s';
+                src.style.color = '#a76a7b';
+                src.style.transition = '1s';
+                srctext.style.color = '#9f8f73';
+                srctext.style.transition = '1s';
+            } else {
+                body.style.background = '#ffe8ff';
+                body.style.color = 'white';
+                body.style.transition = '1s';
+                navbar[0].style.background = '#ff60b2';
+                navbar[0].style.transition = '1s';
+                for (let i = 0; i < navtext.length; i++) {
+                    navtext[i].style.transition = '1s';
+                    navtext[i].style.color = '#ffeecf';
+                }
+                for (let i = 0; i < boxstyle.length; i++) {
+                    boxstyle[i].style.background = '#a864a8';
+                    boxstyle[i].style.transition = '0.15s';
+                    boxstyle[i].style.color = '#ffeafa';
+                }
+                for (let i = 0; i < btn.length; i++) {
+                    btn[i].classList.add('light')
+                }
+                for (let i = 0; i < boxhover.length; i++) {
+                    boxhover[i].classList.add('light')
+                }
+                thiscord[0].style.color = '#ff527d';
+                thiscord[0].style.transition = '1s';
+                credits[0].style.background = '#ff60b2';
+                credits[0].style.transition = '1s';
+                download.classList.add('light');
+                infotext.style.color = '#ff92ff';
+                infotext.style.transition = '1s';
+                src.style.color = '#540219';
+                src.style.transition = '1s';
+                srctext.style.color = '#ffeecf';
+                srctext.style.transition = '1s';
+            }
+        })
+    </script>
 </body>
 </html>
